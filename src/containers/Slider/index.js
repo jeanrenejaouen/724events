@@ -8,13 +8,20 @@ const Slider = () => {
   const { data } = useData();
   const [index, setIndex] = useState(0);
   const byDateDesc = data?.focus.sort((evtA, evtB) =>
-    new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
+    /* Erreur fonctionnelle : Les slides n'apparaissent pas dans un ordre décroissant */
+    /* Solution : inverser l'ordre de tri */
+    /* new Date(evtA.date) < new Date(evtB.date) ? -1 : 1 */
+    new Date(evtB.date) > new Date(evtA.date) ? 1 : -1
   );
   const nextCard = () => {
+    
     setTimeout(
-      () => setIndex(index < byDateDesc.length ? index + 1 : 0),
+      /* Erreur fonctionnelle : une image vide est affichée dans le slider */
+      /* Solution : soustraire 1 à la longueur du tableau car le premier élément d'un tableau = 0 */
+      () => setIndex(index < byDateDesc.length -1 ? index + 1 : 0),
       5000
     );
+  
   };
   useEffect(() => {
     nextCard();
@@ -42,10 +49,13 @@ const Slider = () => {
             <div className="SlideCard__pagination">
               {byDateDesc.map((_, radioIdx) => (
                 <input
-                  key={`${event.id}`}
+                  key={`${event.id}`}                                   
                   type="radio"
                   name="radio-button"
-                  checked={idx === radioIdx}
+                  /* Erreur fonctionnelle : le bouton radio du slider reste bloqué sur le 3ème bouton */
+                  /* Solution : remplacer idx par index qui est le slide courant */
+                  /* checked={idx === radioIdx} */
+                  checked={index === radioIdx}                 
                 />
               ))}
             </div>
