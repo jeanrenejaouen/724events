@@ -16,6 +16,9 @@ const Form = ({ onSuccess, onError }) => {
       try {
         await mockContactApi();
         setSending(false);
+        /* Erreur fonctionnelle && Test : Impossible de trouver un élément avec le texte : Message envoyé ! */
+        /* Solution : Rajouter "onSuccess()" */
+        onSuccess()
       } catch (err) {
         setSending(false);
         onError(err);

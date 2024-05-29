@@ -16,7 +16,10 @@ const Select = ({
   const [value, setValue] = useState();
   const [collapsed, setCollapsed] = useState(true);
   const changeValue = (newValue) => {
-    onChange();
+    /* Erreur fonctionnelle : quand on sélectionne la catégorie le filtre n'est pas appliqué */
+    /* Solution : Rajouter paramètre "newValue" à onChange */
+    /* onChange(); */
+    onChange(newValue);    
     setValue(newValue);
     setCollapsed(newValue);
   };

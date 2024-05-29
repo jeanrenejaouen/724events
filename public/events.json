@@ -271,7 +271,7 @@
         },
         {
             "id": 18,
-            "type": "soirée entreprise",
+            "type": "soirée entreprise",            
             "date": "2022-04-29T20:28:45.744Z",
             "title": "Conférence #productCON",
             "cover": "/images/stem-list-EVgsAbL51Rk-unsplash.png",
@@ -285,7 +285,8 @@
                 "1 site web dédié"
             ]
         }
-    ],
+    ],   
+
     "focus": [
         {
             "title": "World economic forum",

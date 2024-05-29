@@ -13,7 +13,30 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-  const {last} = useData()
+  /* Erreur fonctionnelle : Le dernier événement n'apparaît pas dans le pied de page */
+  /* Solution : Initialisez correctement "last" avec le dernier événement dans "data" */
+  /* const {last} = useData() */
+  /* ce code permet d'obtenir le dernier événement d'une liste d'événements stockée dans l'objet data. */
+  const {data} = useData()  
+
+  /* const lastTri = data && data.events.sort((a, b) => 
+     new Date(b.date) - new Date(a.date) ? 1 : null ); */  
+  
+  /* console.log(lastTri) */
+
+  /* const last = lastTri.length -1 */
+  
+ /*  Ce code signifie que la variable `last` va stocker le dernier élément du tableau `data.events` si ce tableau 
+  n'est pas vide. Sinon, la variable `last` sera égale à `null`.
+  L'opérateur `&&` est utilisé en premier afin de vérifier si `data` existe et si `data.events` n'est pas nul. 
+  Ensuite, la condition `data.events.length > 0` vérifie si le tableau `data.events` contient au moins un élément. 
+  Si c'est le cas, l'élément à l'index `data.events.length - 1` (le dernier élément du tableau) est assigné à la variable 
+  `last`. Sinon, la variable `last` est assignée à `null`. */ 
+
+const last = data && data.events.length > 0
+      ? data.events[data.events.length - 1] 
+      : null;            
+
   return <>
     <header>
       <Menu />
@@ -23,6 +46,8 @@ const Page = () => {
         <Slider />
       </section>
       <section className="ServicesContainer">
+        {/* Erreur fonctionnelle : le lien "Nos Services" ne dirige pas à la section "Nos Services" */}
+        {/* Solution : rajouter l'ancre id="nos-services" */}
         <h2 id="nos-services" className="Title">Nos services</h2>
         <p>Nous organisons des événements sur mesure partout dans le monde</p>
         <div className="ListContainer">
@@ -52,10 +77,14 @@ const Page = () => {
         </div>
       </section>
       <section className="EventsContainer">
+        {/* Erreur fonctionnelle : le lien "Nos Services" ne dirige pas à la section "Nos Réalisations" */}
+        {/* Solution : rajouter l'ancre id="nos-realisations" */}
         <h2 id="nos-realisations" className="Title">Nos réalisations</h2>
         <EventList />
       </section>
       <section className="PeoplesContainer">
+        {/* Erreur fonctionnelle : le lien "Nos Services" ne dirige pas à la section "Notre équipe" */}
+        {/* Solution : rajouter l'ancre id="notre-equipe" */}
         <h2 id="notre-equipe" className="Title">Notre équipe</h2>
         <p>Une équipe d’experts dédiés à l’ogranisation de vos événements</p>
         <div className="ListContainer">
@@ -116,13 +145,32 @@ const Page = () => {
     <footer className="row">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
+        {/* Erreur console : The prop `imageSrc` is marked as required in `EventCard`, but its value is `undefined`. */}
+        {/* Erreur console : The prop `title` is marked as required in `EventCard`, but its value is `undefined`. */}
+        {/* Erreur console (après ajout 'imageAlt'): The prop `imageAlt` is marked as required in `EventCard`, but its value is `undefined`. */}
+        {/* Voir propTypes EventCard */}
+        {/* Solution : Ajouter test du dernier évènement récupéré  */}
+        {/* ce code affiche un composant "EventCard" avec les informations de l'objet "last" si cet objet est défini. */}
+        {last && (
+          
         <EventCard
+        
           imageSrc={last?.cover}
+          // Ajouter "imageAlt"
+          imageAlt={last?.description}
           title={last?.title}
           date={new Date(last?.date)}
+          /* date={last?.date} */           
           small
-          label="boom"
+          /* Modifier la valeur du label */
+          /* label="boom" */
+          label={last?.type}
+          
         />
+        )}
+        
+        
+         
       </div>
       <div className="col contact">
         <h3>Contactez-nous</h3>
