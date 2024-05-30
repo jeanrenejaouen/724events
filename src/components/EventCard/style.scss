@@ -61,7 +61,9 @@
     align-items: flex-start;
     font-weight: 400;
     padding: 30px;
-    width: 80%;
+    /* Pour que le mois apparaisse toujours dans le container passer width à 90% */
+    /* width: 80%; */
+    width: 90%;
   }
   &__title {
     font-size: 16px;
