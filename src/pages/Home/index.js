@@ -18,13 +18,6 @@ const Page = () => {
   /* const {last} = useData() */
   /* ce code permet d'obtenir le dernier événement d'une liste d'événements stockée dans l'objet data. */
   const {data} = useData()  
-
-  /* const lastTri = data && data.events.sort((a, b) => 
-     new Date(b.date) - new Date(a.date) ? 1 : null ); */  
-  
-  /* console.log(lastTri) */
-
-  /* const last = lastTri.length -1 */
   
  /*  Ce code signifie que la variable `last` va stocker le dernier élément du tableau `data.events` si ce tableau 
   n'est pas vide. Sinon, la variable `last` sera égale à `null`.
@@ -86,7 +79,7 @@ const last = data && data.events.length > 0
         {/* Erreur fonctionnelle : le lien "Nos Services" ne dirige pas à la section "Notre équipe" */}
         {/* Solution : rajouter l'ancre id="notre-equipe" */}
         <h2 id="notre-equipe" className="Title">Notre équipe</h2>
-        <p>Une équipe d’experts dédiés à l’ogranisation de vos événements</p>
+        <p>Une équipe d’experts dédiés à l’ogranisation de vos évènements</p>
         <div className="ListContainer">
           <PeopleCard
             imageSrc="/images/stephanie-liverani-Zz5LQe-VSMY-unsplash.png"
@@ -144,13 +137,13 @@ const last = data && data.events.length > 0
     </main>
     <footer className="row">
       <div className="col presta">
-        <h3>Notre derniére prestation</h3>
+        <h3>Notre dernière prestation</h3>
         {/* Erreur console : The prop `imageSrc` is marked as required in `EventCard`, but its value is `undefined`. */}
-        {/* Erreur console : The prop `title` is marked as required in `EventCard`, but its value is `undefined`. */}
-        {/* Erreur console (après ajout 'imageAlt'): The prop `imageAlt` is marked as required in `EventCard`, but its value is `undefined`. */}
+        {/* Erreur console : The prop `title` is marked as required in `EventCard`, but its value is `undefined`. */}        
         {/* Voir propTypes EventCard */}
-        {/* Solution : Ajouter test du dernier évènement récupéré  */}
+        {/* Solution : Ajouter "last &&" pour vérifier si last existe  */}
         {/* ce code affiche un composant "EventCard" avec les informations de l'objet "last" si cet objet est défini. */}
+        
         {last && (
           
         <EventCard

@@ -14,15 +14,14 @@ const Slider = () => {
     new Date(evtB.date) > new Date(evtA.date) ? 1 : -1
   );
   const nextCard = () => {
-    /* Erreur console : Cannot read properties of undefined (reading 'length')
-    at index.js:22:1 */
+    /* Erreur console : Cannot read properties of undefined (reading 'length') at index.js:22:1 */
     /* Solution : Ajouter si "byDateDesc" existe */
     if (byDateDesc) {
     setTimeout(
-      /* Erreur fonctionnelle : une image vide est affichée dans le slider */
+      /* Erreur fonctionnelle : une image vide est affichée dans le slider */      
       /* Solution : soustraire 1 à la longueur du tableau car le premier élément d'un tableau = 0 */      
-
-      () => setIndex(index < byDateDesc.length -1 ? index + 1 : 0), 
+      /* () => setIndex(index < byDateDesc.length ? index + 1 : 0), */
+      () => setIndex(index < byDateDesc.length-1 ? index + 1 : 0), 
       /* Erreur console : [Violation] 'setTimeout' handler took 54ms */
       /* Solution : Modifier la vitesse de défilement 2000 au lieu de 5000  */    
       2000
@@ -82,7 +81,7 @@ const Slider = () => {
             </div>
           </div>
           </div>
-         /* </> */
+        /* </> */ 
       ))}
     </div>
   );

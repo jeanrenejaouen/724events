@@ -13,4 +13,11 @@ export const MONTHS = {
   12: "décembre",
 };
 
+// Erreurs Test :
+// When a event card is created › a title, a label and a month are displayed,
+// Unable to find an element with the text: /avril/.
+// When slider is created › a list card is displayed,
+// Unable to find an element with the text: janvier.
+// Solution : les mois affichés en lettres ne sont pas corrects > Ajoutez 1 pour getMonth
+// (export const getMonth = (date) => MONTHS[date.getMonth()];)
 export const getMonth = (date) => MONTHS[date.getMonth()+1];
