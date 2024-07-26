@@ -10,8 +10,8 @@ const Slider = () => {
   const byDateDesc = data?.focus.sort((evtA, evtB) =>
     /* Erreur fonctionnelle : Les slides n'apparaissent pas dans un ordre décroissant */
     /* Solution : inverser l'ordre de tri */
-    /* new Date(evtA.date) < new Date(evtB.date) ? -1 : 1 */
-    new Date(evtB.date) > new Date(evtA.date) ? 1 : -1
+    new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
+    /* new Date(evtB.date) > new Date(evtA.date) ? 1 : -1 */
   );
   const nextCard = () => {
     /* Erreur console : Cannot read properties of undefined (reading 'length') at index.js:22:1 */
