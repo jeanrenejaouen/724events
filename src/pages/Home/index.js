@@ -70,13 +70,13 @@ const last = data && data.events.length > 0
         </div>
       </section>
       <section className="EventsContainer">
-        {/* Erreur fonctionnelle : le lien "Nos Services" ne dirige pas à la section "Nos Réalisations" */}
+        {/* Erreur fonctionnelle : le lien "Nos Réalisations" ne dirige pas à la section "Nos Réalisations" */}
         {/* Solution : rajouter l'ancre id="nos-realisations" */}
         <h2 id="nos-realisations" className="Title">Nos réalisations</h2>
         <EventList />
       </section>
       <section className="PeoplesContainer">
-        {/* Erreur fonctionnelle : le lien "Nos Services" ne dirige pas à la section "Notre équipe" */}
+        {/* Erreur fonctionnelle : le lien "Nos équipe" ne dirige pas à la section "Notre équipe" */}
         {/* Solution : rajouter l'ancre id="notre-equipe" */}
         <h2 id="notre-equipe" className="Title">Notre équipe</h2>
         <p>Une équipe d’experts dédiés à l’ogranisation de vos évènements</p>
